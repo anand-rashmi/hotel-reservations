@@ -12,6 +12,9 @@ namespace HotelReservations
 
         public Hotel(int size)
         {
+            if (size < 1 || size > 1000)
+                throw new ArgumentOutOfRangeException(nameof(size), "Hotel size must be between 1 and 1000.");
+            
             totalRooms = size;
             roomBookings = new int[totalRooms, MaxBookingDays];
         }
